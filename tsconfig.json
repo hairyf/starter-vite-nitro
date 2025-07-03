@@ -1,0 +1,13 @@
+// https://nitro.unjs.io/guide/typescript
+{
+  "compilerOptions": {
+    "types": [
+      "vite/client",
+      "vite-plugin-pages/client-react",
+    ],
+    "jsx": "react-jsx",
+    "jsxFragmentFactory": null,
+    "jsxFactory": null
+  },
+  "extends": "./.nitro/types/tsconfig.json"
+}
