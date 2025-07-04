@@ -1,0 +1,15 @@
+diff --git a/dist/index.mjs b/dist/index.mjs
+index 62bf9a976fa92b3342ffee83491f717724a6ce92..b6703a251f7230fad5dc572e0e2fdd033b9a2565 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -105,8 +105,8 @@ ${diff.map((entry) => `  ${entry.toString()}`).join("\n")}`);
+         await prerender(nitro);
+         await build(nitro);
+         await nitro.close();
+-        await fs.mkdir(".output/server/node_modules/vite/misc", { recursive: true });
+-        await fs.writeFile(".output/server/node_modules/vite/misc/true.js", "export default true");
++
++        consola.log(await Array.fromAsync(fs.glob('.vercel/**')))
+       },
+       resolveId(source) {
+         if (source === "virtual:$fetch")
