@@ -1,8 +1,3 @@
-import redisDriver from 'unstorage/drivers/redis'
-
-redisDriver({
-
-})
 export default defineNitroConfig({
   storage: {
     base: {
