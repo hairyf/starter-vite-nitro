@@ -5,7 +5,7 @@ import pages from 'vite-plugin-pages'
 
 export default defineConfig({
   plugins: [
-    nitro({ preset: 'vercel' }),
+    nitro(),
     react(),
     pages({
       resolver: 'react',
