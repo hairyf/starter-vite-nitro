@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  nitropack-vite:
+    hash: 2cbadcae8cb58d303f359532be4bc1ed513b96f29190019988ec2419b363d78f
+    path: patches/nitropack-vite.patch
+
 importers:
 
   .:
@@ -65,7 +70,7 @@ importers:
         version: 2.11.13
       nitropack-vite:
         specifier: ^0.3.0
-        version: 0.3.0(patch_hash=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855)
+        version: 0.3.0(patch_hash=2cbadcae8cb58d303f359532be4bc1ed513b96f29190019988ec2419b363d78f)
       tailwindcss:
         specifier: ^3.4.17
         version: 3.4.17
@@ -9924,7 +9929,7 @@ snapshots:
       p-wait-for: 5.0.2
       qs: 6.14.0
 
-  nitropack-vite@0.3.0(patch_hash=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855):
+  nitropack-vite@0.3.0(patch_hash=2cbadcae8cb58d303f359532be4bc1ed513b96f29190019988ec2419b363d78f):
     dependencies:
       '@hairy/utils': 1.33.0
       consola: 3.4.2
