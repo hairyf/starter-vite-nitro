@@ -1,8 +1,10 @@
+import process from 'node:process'
+
 export default defineNitroConfig({
   storage: {
     base: {
       driver: 'redis',
-      url: 'REDIS_URL',
+      url: process.env.REDIS_URL,
     },
   },
   devStorage: {
@@ -11,8 +13,5 @@ export default defineNitroConfig({
       base: './.nitro/dev/storage',
     },
   },
-  // scheduledTasks: {
-  //   '* * * * *': ['increase'],
-  // },
   experimental: { tasks: true },
 })
