@@ -1,8 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nitro",
   "installCommand": "pnpm install",
   "buildCommand": "pnpm build",
   "devCommand": "pnpm dev",
+  "outputDirectory": ".output",
   "crons": [
     {
       "path": "/increase",
