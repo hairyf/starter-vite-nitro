@@ -1,5 +1,5 @@
 diff --git a/dist/index.mjs b/dist/index.mjs
-index 62bf9a976fa92b3342ffee83491f717724a6ce92..1726e2774f121be7b77e05846821d30c9295f6dc 100644
+index 62bf9a976fa92b3342ffee83491f717724a6ce92..bd971e95ba9b6c55da7168c4126fa7861a3f3817 100644
 --- a/dist/index.mjs
 +++ b/dist/index.mjs
 @@ -16,6 +16,7 @@ async function Nitro(options = {}) {
@@ -26,7 +26,8 @@ index 62bf9a976fa92b3342ffee83491f717724a6ce92..1726e2774f121be7b77e05846821d30c
        async configureServer(server2) {
          server2.middlewares.use(async (req, res, next) => filter(req.originalUrl || req.url || "") ? listener?.(req, res) : next());
        },
-       async buildEnd() {
+-      async buildEnd() {
++      async closeBundle() {
 +        consola.info("Building Nitro...");
 +        consola.log(`Output directory: ${outDir}`);
 +        consola.log(`Source directory: ${srcDir}`);
