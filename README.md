@@ -101,8 +101,8 @@ API routes are located in the `src/routes` directory and defined using Nitro's `
 ```typescript
 // src/routes/example.ts
 export default defineEventHandler((event) => {
-  return { message: "Hello from API" };
-});
+  return { message: 'Hello from API' }
+})
 ```
 
 ### Styling

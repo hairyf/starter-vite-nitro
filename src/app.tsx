@@ -1,7 +1,7 @@
-import routes from '~react-pages'
-import { useRoutes } from 'react-router-dom'
 import { Suspense } from 'react'
-import "./app.css"
+import { useRoutes } from 'react-router-dom'
+import routes from '~react-pages'
+import './app.css'
 
 export default function App() {
   return (

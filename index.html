@@ -1,25 +1,25 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React + TS</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vite + React + TS</title>
-</head>
-
-<body>
-  <div id="root"></div>
-  <script type="module">
-    import { StrictMode, Suspense, createElement } from 'react'
-    import { BrowserRouter, useRoutes } from 'react-router-dom'
-    import { createRoot } from 'react-dom/client'
-    import App from './src/app'
-    const app = createRoot(document.getElementById('root'))
-    app.render(import.meta.env.VITE_STRICT_MODE
-      ? createElement(StrictMode, null, createElement(BrowserRouter, null, createElement(App, null)))
-      : createElement(BrowserRouter, null, createElement(App, null)))
-  </script>
-</body>
-
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      import { StrictMode, Suspense, createElement } from 'react'
+      import { BrowserRouter, useRoutes } from 'react-router-dom'
+      import { createRoot } from 'react-dom/client'
+      import App from './src/app'
+      const app = createRoot(document.getElementById('root'))
+      app.render(
+        import.meta.env.VITE_STRICT_MODE
+          ? createElement(StrictMode, null, createElement(BrowserRouter, null, createElement(App, null)))
+          : createElement(BrowserRouter, null, createElement(App, null)),
+      )
+    </script>
+  </body>
 </html>
