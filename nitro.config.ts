@@ -1,9 +1,13 @@
+import redisDriver from 'unstorage/drivers/redis'
+
+redisDriver({
+
+})
 export default defineNitroConfig({
   storage: {
     base: {
-      envPrefix: 'BLOB',
-      driver: 'vercel-blob',
-      access: 'public',
+      driver: 'redis',
+      url: 'REDIS_URL',
     },
   },
   devStorage: {

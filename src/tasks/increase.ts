@@ -5,7 +5,7 @@ export default defineTask({
     description: 'Increase the count',
   },
   async run() {
-    const storage = useStorage('base')
+    const storage = useStorage('kv')
     const count = await storage.getItem<number>('count', { allowOverwrite: true }) || 0
     await storage.setItem('count', count + 1, { allowOverwrite: true })
     console.log(`Current count is: ${count + 1}`)
