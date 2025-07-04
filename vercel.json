@@ -5,7 +5,7 @@
   "devCommand": "pnpm dev",
   "crons": [
     {
-      "path": "/api/increase",
+      "path": "/increase",
       "schedule": "* * * * *"
     }
   ]
