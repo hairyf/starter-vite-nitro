@@ -7,13 +7,12 @@ export default function Home() {
   const navigate = useNavigate()
 
   const go = async () => {
-    const res = await $fetch('/storage')
     navigate(`/hi/${name}`)
   }
 
   return (
     <div className="w-80 flex gap-4">
-      <Input value={name} onChange={(e) => setName(e.target.value)} />
+      <Input value={name} onChange={e => setName(e.target.value)} />
       <Button onPress={go}>Go</Button>
     </div>
   )

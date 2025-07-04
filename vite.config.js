@@ -5,9 +5,7 @@ import pages from 'vite-plugin-pages'
 
 export default defineConfig({
   plugins: [
-    nitro({
-      clientDist: `${process.cwd()}/src/public`,
-    }),
+    nitro(),
     react(),
     pages({
       resolver: 'react',
