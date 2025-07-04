@@ -1,5 +1,5 @@
 diff --git a/dist/index.mjs b/dist/index.mjs
-index 62bf9a976fa92b3342ffee83491f717724a6ce92..0c7d0fea19fd6a568f95c79c269f80819c605b22 100644
+index 62bf9a976fa92b3342ffee83491f717724a6ce92..1726e2774f121be7b77e05846821d30c9295f6dc 100644
 --- a/dist/index.mjs
 +++ b/dist/index.mjs
 @@ -16,6 +16,7 @@ async function Nitro(options = {}) {
@@ -10,7 +10,7 @@ index 62bf9a976fa92b3342ffee83491f717724a6ce92..0c7d0fea19fd6a568f95c79c269f8081
    async function reloadNitro() {
      if (nitro) {
        consola.info("Restarting dev server...");
-@@ -91,22 +92,29 @@ ${diff.map((entry) => `  ${entry.toString()}`).join("\n")}`);
+@@ -91,22 +92,30 @@ ${diff.map((entry) => `  ${entry.toString()}`).join("\n")}`);
          config.server.watch.ignored ??= [];
          config.server.watch.ignored = isArray(config.server.watch.ignored) ? [...config.server.watch.ignored, /\.nitro\/types\/tsconfig.json/] : [config.server.watch.ignored, /\.nitro\/types\/tsconfig.json/].filter(Boolean);
          config.build ??= {};
@@ -31,7 +31,8 @@ index 62bf9a976fa92b3342ffee83491f717724a6ce92..0c7d0fea19fd6a568f95c79c269f8081
 +        consola.log(`Output directory: ${outDir}`);
 +        consola.log(`Source directory: ${srcDir}`);
 +        consola.log(`Relative path: ${path.relative(srcDir, outDir)}`);
-+        
++        consola.log(await Array.fromAsync(fs.glob(`${outDir}/**`)));
++
 +        nitro = await createNitro$1(outDir);
          await prepare(nitro);
          await copyPublicAssets(nitro);
