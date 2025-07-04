@@ -12,5 +12,8 @@ export default defineNitroConfig({
       base: './.nitro/dev/storage',
     },
   },
+  scheduledTasks: {
+    '* * * * *': ['increase'],
+  },
   experimental: { tasks: true },
 })
