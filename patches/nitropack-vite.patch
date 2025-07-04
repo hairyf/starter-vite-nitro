@@ -1,31 +1,33 @@
 diff --git a/dist/index.mjs b/dist/index.mjs
-index 62bf9a976fa92b3342ffee83491f717724a6ce92..b3f13a1425fe14cf8c7259bd5e76870fd4b777d4 100644
+index 62bf9a976fa92b3342ffee83491f717724a6ce92..c025e0fc1904cb1858f11c57591223c82fd0f532 100644
 --- a/dist/index.mjs
 +++ b/dist/index.mjs
 @@ -16,6 +16,7 @@ async function Nitro(options = {}) {
    let listener;
    let server;
    let nitro;
-+  let config;
++  const outDir = `${process.cwd()}/dist`;
    async function reloadNitro() {
      if (nitro) {
        consola.info("Restarting dev server...");
-@@ -93,20 +94,24 @@ ${diff.map((entry) => `  ${entry.toString()}`).join("\n")}`);
+@@ -91,22 +92,25 @@ ${diff.map((entry) => `  ${entry.toString()}`).join("\n")}`);
+         config.server.watch.ignored ??= [];
+         config.server.watch.ignored = isArray(config.server.watch.ignored) ? [...config.server.watch.ignored, /\.nitro\/types\/tsconfig.json/] : [config.server.watch.ignored, /\.nitro\/types\/tsconfig.json/].filter(Boolean);
          config.build ??= {};
-         config.build.outDir ??= whenever(options.clientDist, path.resolve) || `${process.cwd()}/dist`;
+-        config.build.outDir ??= whenever(options.clientDist, path.resolve) || `${process.cwd()}/dist`;
++        config.build.outDir = outDir
        },
 -      async configResolved(config) {
 -        nitro = process.env.NODE_ENV === "production" ? await createNitro$1(path.resolve(config.build.outDir)) : await reloadNitro();
 +      async configResolved(configResolved) {
 +        if (process.env.NODE_ENV === 'devlopment')
 +          reloadNitro()
-+        config = configResolved;
        },
        async configureServer(server2) {
          server2.middlewares.use(async (req, res, next) => filter(req.originalUrl || req.url || "") ? listener?.(req, res) : next());
        },
        async buildEnd() {
-+        nitro = await createNitro$1(path.resolve(config.build.outDir))
++        nitro = await createNitro$1(outDir)
          await prepare(nitro);
          await copyPublicAssets(nitro);
          await prerender(nitro);
