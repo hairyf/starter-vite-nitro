@@ -1,5 +1,5 @@
 diff --git a/dist/index.mjs b/dist/index.mjs
-index 62bf9a976fa92b3342ffee83491f717724a6ce92..c025e0fc1904cb1858f11c57591223c82fd0f532 100644
+index 62bf9a976fa92b3342ffee83491f717724a6ce92..d64eeb648bfe89b7bb308bae672bc077b9caf24d 100644
 --- a/dist/index.mjs
 +++ b/dist/index.mjs
 @@ -16,6 +16,7 @@ async function Nitro(options = {}) {
@@ -10,7 +10,7 @@ index 62bf9a976fa92b3342ffee83491f717724a6ce92..c025e0fc1904cb1858f11c57591223c8
    async function reloadNitro() {
      if (nitro) {
        consola.info("Restarting dev server...");
-@@ -91,22 +92,25 @@ ${diff.map((entry) => `  ${entry.toString()}`).join("\n")}`);
+@@ -91,22 +92,28 @@ ${diff.map((entry) => `  ${entry.toString()}`).join("\n")}`);
          config.server.watch.ignored ??= [];
          config.server.watch.ignored = isArray(config.server.watch.ignored) ? [...config.server.watch.ignored, /\.nitro\/types\/tsconfig.json/] : [config.server.watch.ignored, /\.nitro\/types\/tsconfig.json/].filter(Boolean);
          config.build ??= {};
@@ -27,7 +27,11 @@ index 62bf9a976fa92b3342ffee83491f717724a6ce92..c025e0fc1904cb1858f11c57591223c8
          server2.middlewares.use(async (req, res, next) => filter(req.originalUrl || req.url || "") ? listener?.(req, res) : next());
        },
        async buildEnd() {
-+        nitro = await createNitro$1(outDir)
++        consola.info("Building Nitro...");
++        consola.log(`Output directory: ${outDir}`);
++        consola.log(`Source directory: ${srcDir}`);
++        consola.log(`Relative path: ${path.relative(srcDir, dist)}`);
++        nitro = await createNitro$1(outDir);
          await prepare(nitro);
          await copyPublicAssets(nitro);
          await prerender(nitro);
@@ -36,7 +40,6 @@ index 62bf9a976fa92b3342ffee83491f717724a6ce92..c025e0fc1904cb1858f11c57591223c8
 -        await fs.mkdir(".output/server/node_modules/vite/misc", { recursive: true });
 -        await fs.writeFile(".output/server/node_modules/vite/misc/true.js", "export default true");
 +
-+        consola.log(path.relative(srcDir, dist))
 +        consola.log(await Array.fromAsync(fs.glob('.vercel/**')))
        },
        resolveId(source) {
