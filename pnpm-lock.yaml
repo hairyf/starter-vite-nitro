@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  nitropack-vite:
+    hash: ce86094c7b2394c28fb0abc162e55b1db9e252d9585e8d018c1b4349ba374df8
+    path: patches/nitropack-vite.patch
+
 importers:
 
   .:
@@ -74,7 +79,7 @@ importers:
         version: 2.11.13(@upstash/redis@1.35.1)(@vercel/blob@1.1.1)(@vercel/kv@3.0.0)
       nitropack-vite:
         specifier: ^0.3.1
-        version: 0.3.1(@upstash/redis@1.35.1)(@vercel/blob@1.1.1)(@vercel/kv@3.0.0)
+        version: 0.3.1(patch_hash=ce86094c7b2394c28fb0abc162e55b1db9e252d9585e8d018c1b4349ba374df8)(@upstash/redis@1.35.1)(@vercel/blob@1.1.1)(@vercel/kv@3.0.0)
       tailwindcss:
         specifier: ^3.4.17
         version: 3.4.17
@@ -9999,7 +10004,7 @@ snapshots:
       p-wait-for: 5.0.2
       qs: 6.14.0
 
-  nitropack-vite@0.3.1(@upstash/redis@1.35.1)(@vercel/blob@1.1.1)(@vercel/kv@3.0.0):
+  nitropack-vite@0.3.1(patch_hash=ce86094c7b2394c28fb0abc162e55b1db9e252d9585e8d018c1b4349ba374df8)(@upstash/redis@1.35.1)(@vercel/blob@1.1.1)(@vercel/kv@3.0.0):
     dependencies:
       '@hairy/utils': 1.33.0
       consola: 3.4.2

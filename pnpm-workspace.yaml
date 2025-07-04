@@ -1,0 +1,2 @@
+patchedDependencies:
+  nitropack-vite: patches/nitropack-vite.patch
