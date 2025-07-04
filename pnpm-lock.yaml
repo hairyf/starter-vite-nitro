@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   nitropack-vite:
-    hash: 58303fcf2988602887a03c6b623c8f1522cce0539bbdb82083f83fc72d7b3bf1
+    hash: 7fc05fd924bbab5c03e62bb8f59db57abbc311c1a2a8c3191b99e00095f5558f
     path: patches/nitropack-vite.patch
 
 importers:
@@ -70,7 +70,7 @@ importers:
         version: 2.11.13(@vercel/blob@1.1.1)
       nitropack-vite:
         specifier: ^0.2.8
-        version: 0.2.8(patch_hash=58303fcf2988602887a03c6b623c8f1522cce0539bbdb82083f83fc72d7b3bf1)(@vercel/blob@1.1.1)
+        version: 0.2.8(patch_hash=7fc05fd924bbab5c03e62bb8f59db57abbc311c1a2a8c3191b99e00095f5558f)(@vercel/blob@1.1.1)
       tailwindcss:
         specifier: ^3.4.17
         version: 3.4.17
@@ -10094,7 +10094,7 @@ snapshots:
       p-wait-for: 5.0.2
       qs: 6.14.0
 
-  nitropack-vite@0.2.8(patch_hash=58303fcf2988602887a03c6b623c8f1522cce0539bbdb82083f83fc72d7b3bf1)(@vercel/blob@1.1.1):
+  nitropack-vite@0.2.8(patch_hash=7fc05fd924bbab5c03e62bb8f59db57abbc311c1a2a8c3191b99e00095f5558f)(@vercel/blob@1.1.1):
     dependencies:
       '@hairy/utils': 1.33.0
       consola: 3.4.2

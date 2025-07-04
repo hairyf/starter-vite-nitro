@@ -1,14 +1,25 @@
 diff --git a/dist/index.mjs b/dist/index.mjs
-index 62bf9a976fa92b3342ffee83491f717724a6ce92..88f0ef1b33f9262a6a0270873ef8f6d17a17f452 100644
+index 62bf9a976fa92b3342ffee83491f717724a6ce92..b3f13a1425fe14cf8c7259bd5e76870fd4b777d4 100644
 --- a/dist/index.mjs
 +++ b/dist/index.mjs
-@@ -94,19 +94,22 @@ ${diff.map((entry) => `  ${entry.toString()}`).join("\n")}`);
+@@ -16,6 +16,7 @@ async function Nitro(options = {}) {
+   let listener;
+   let server;
+   let nitro;
++  let config;
+   async function reloadNitro() {
+     if (nitro) {
+       consola.info("Restarting dev server...");
+@@ -93,20 +94,24 @@ ${diff.map((entry) => `  ${entry.toString()}`).join("\n")}`);
+         config.build ??= {};
          config.build.outDir ??= whenever(options.clientDist, path.resolve) || `${process.cwd()}/dist`;
        },
-       async configResolved(config) {
+-      async configResolved(config) {
 -        nitro = process.env.NODE_ENV === "production" ? await createNitro$1(path.resolve(config.build.outDir)) : await reloadNitro();
++      async configResolved(configResolved) {
 +        if (process.env.NODE_ENV === 'devlopment')
 +          reloadNitro()
++        config = configResolved;
        },
        async configureServer(server2) {
          server2.middlewares.use(async (req, res, next) => filter(req.originalUrl || req.url || "") ? listener?.(req, res) : next());
