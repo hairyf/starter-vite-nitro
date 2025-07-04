@@ -1,3 +1,3 @@
 export default defineNitroPlugin(() => {
-  // runTask('increase')
+  runTask('increase')
 })

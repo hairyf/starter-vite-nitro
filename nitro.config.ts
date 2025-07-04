@@ -1,10 +1,7 @@
-import process from 'node:process'
-
 export default defineNitroConfig({
   storage: {
     base: {
-      driver: 'redis',
-      url: process.env.REDIS_URL,
+      driver: 'vercel-kv',
     },
   },
   devStorage: {
