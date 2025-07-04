@@ -3,6 +3,3 @@ packages:
   - docs
   - packages/*
   - examples/*
-
-patchedDependencies:
-  nitropack-vite: patches/nitropack-vite.patch
