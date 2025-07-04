@@ -1,3 +1,16 @@
 export default defineNitroConfig({
-  srcDir: 'src',
+  storage: {
+    base: {
+      envPrefix: 'BLOB',
+      driver: 'vercel-blob',
+      access: 'public',
+    },
+  },
+  devStorage: {
+    base: {
+      driver: 'fs-lite',
+      base: './.nitro/dev/storage',
+    },
+  },
+  experimental: { tasks: true },
 })
