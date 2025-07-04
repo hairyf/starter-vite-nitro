@@ -1,11 +1,13 @@
-import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
-import pages from 'vite-plugin-pages'
 import nitro from 'nitropack-vite'
+import { defineConfig } from 'vite'
+import pages from 'vite-plugin-pages'
 
 export default defineConfig({
   plugins: [
-    nitro(),
+    nitro({
+      clientDist: `${process.cwd()}/src/public`,
+    }),
     react(),
     pages({
       resolver: 'react',
